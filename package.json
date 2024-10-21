@@ -1,0 +1,16 @@
+{
+  "name": "koboldcpp-switch",
+  "version": "1.0.0",
+  "description": "KoboldCPP Model Switch API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
