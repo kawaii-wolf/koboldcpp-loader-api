@@ -10,6 +10,7 @@
     },
     "kobold": {
         "backend": "https://kobold-temp.kawaiiwolf.com/v1/models",
-        "exec": "echo"
+        "exec": "echo loading",
+        "exit": "echo unloading"
     }
 }

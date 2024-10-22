@@ -25,6 +25,7 @@ router.get("/", function(req, res, next) {
         });
     });
     res.send(reply);
+    console.log(`Listing Models: ${reply}`)
 });
 
 module.exports = router;

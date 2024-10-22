@@ -46,17 +46,20 @@ router.post("/", function(req, res, next) {
     if (!req.body.model || !req.body.context)
     {
         res.status(400).send(req.body);
+        console.log(`Error Loading Model: missing parameters`);
         return;
     }
     let files = fs.readdirSync(modeldir);
     if (!files.includes(req.body.model))
     {    
         res.status(404).send(req.body);
+        console.log(`Error Loading Model: no model ${req.body.model}`);
         return;
     }
     if (!(req.body.context === parseInt(req.body.context,10)) || req.body.context <= 0)
     {
         res.status(400).send(req.body);
+        console.log(`Error Loading Model: bad context ${req.body.context}`);
         return;
     }
 
@@ -64,18 +67,22 @@ router.post("/", function(req, res, next) {
     exec(cmd, (error, stdout, stderr) => {
         if (error) {
             res.status(400).send(error.message);
+            console.log(`Error Loading Model: ${error.message}`);
             return;
         }
         if (stderr) {
             res.status(400).send(stderr);
+            console.log(`Error Loading Model: ${stderr}`);
             return;
         }
+        console.log(`Loading model (${cmd}): ${stdout.trim()}`);
     });
 
     res.send(req.body);
 });
 
 router.use((err, req, res, next) => {
+    console.log(`Error Loading Model: ${err}`);
     res.status(400).send(err)
 });
 
