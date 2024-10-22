@@ -1,0 +1,15 @@
+
+{
+    "server": {
+        "host": "localhost",
+        "port": 7000
+    },
+    "model": {
+        "folder": "/home/wolf/Documents/Projects/gguf",
+        "types": [".gguf"]
+    },
+    "kobold": {
+        "backend": "https://kobold-temp.kawaiiwolf.com/v1/models",
+        "exec": "echo"
+    }
+}

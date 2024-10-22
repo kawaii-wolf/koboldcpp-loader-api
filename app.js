@@ -2,22 +2,30 @@ const fs = require('fs');
 const express = require('express');
 var path = require("path");
 const app = express();
-const port = 8000;
+const config = require('config');
+const port = config.get('server.port');
+const host = config.get('server.host');
 
 var swaggerJsdoc = require("swagger-jsdoc");
 var swaggerUi = require("swagger-ui-express");
 var swaggerSpecs = swaggerJsdoc({
     swaggerDefinition: {
         info: {
-        title: "My API",
+        title: "KoboldCPP Switch API",
         version: "1.0.0",
-        description: "My API for doing cool stuff!",
+        description: "API for loading koboldcpp with models dynamically.",
         },
     },
     apis: [path.join(__dirname, "/routes/*.js")],
 });
 
-app.listen(port,()=> { console.log('listen port 8000'); });
+const server = app.listen(port, host, (err) => {
+    if (err) {
+        console.log(err);
+        process.exit(1);
+    }
+    console.log(`Server is running on ${host}:${server.address().port}`);
+});
 
 fs.readdir(`${__dirname}/routes`, (err, files) => {
     if (err)
