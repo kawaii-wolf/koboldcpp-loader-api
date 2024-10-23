@@ -3,14 +3,15 @@
     "server": {
         "host": "127.0.0.1",
         "port": 7000,
-        "path": "/kobold-api"
+        "path": "/kobold-api",
+        "secret": "password"
     },
     "model": {
-        "folder": "/home/wolf/Documents/Projects/gguf",
+        "folder": "/path/to/gguf",
         "types": [".gguf"]
     },
     "kobold": {
-        "backend": "https://kobold-temp.kawaiiwolf.com/v1/models",
+        "backend": "https://kobold.cpp/v1/models",
         "exec": "echo loading",
         "exit": "echo unloading"
     }
