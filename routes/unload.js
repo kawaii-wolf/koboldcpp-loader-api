@@ -6,7 +6,7 @@ const { exec } = require("child_process");
 
 /**
  * @swagger
- * /unload:
+ * /kobold-api/unload:
  *  post:
  *    summary: Unload a LLM
  *    consumes:

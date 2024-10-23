@@ -7,12 +7,12 @@ const modeltype = config.get('model.types');
 
 /**
  * @swagger
- * /list:
+ * /kobold-api/list:
  *  get:
- *      summary: Returns html for the default ExpressJS welcome page.
+ *      summary: Returns listing of available models.
  *      responses:
  *          200:
- *              description: html content
+ *              description: array of strings containing available model names 
  */
 
 router.get("/", function(req, res, next) {

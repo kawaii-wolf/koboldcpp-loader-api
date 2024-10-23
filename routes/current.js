@@ -6,7 +6,7 @@ const backend = config.get('kobold.backend');
 
 /**
  * @swagger
- * /current:
+ * /kobold-api/current:
  *  get:
  *    summary: Show the currently loaded model.
  *    responses:

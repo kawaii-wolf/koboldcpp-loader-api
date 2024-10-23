@@ -10,7 +10,7 @@ const { exec } = require("child_process");
 
 /**
  * @swagger
- * /load:
+ * /kobold-api/load:
  *  post:
  *    summary: Load a LLM
  *    consumes:

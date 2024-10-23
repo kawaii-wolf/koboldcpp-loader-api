@@ -5,6 +5,7 @@ const app = express();
 const config = require('config');
 const port = config.get('server.port');
 const host = config.get('server.host');
+const webpath = config.get('server.path');
 
 var swaggerJsdoc = require("swagger-jsdoc");
 var swaggerUi = require("swagger-ui-express");
@@ -33,14 +34,14 @@ fs.readdir(`${__dirname}/routes`, (err, files) => {
     else {
         files.forEach(file => {
             if (file.endsWith(".js")) {
-                let route = "/" + file.substring(0,file.length-3);
+                let route = (webpath == "/" ? "/" : webpath + "/") + file.substring(0,file.length-3);
                 console.log("Loading Route: " + route);
-                app.use(route, require(`${__dirname}/routes` + route));
+                app.use(route, require(`${__dirname}/routes/` + file.substring(0,file.length-3)));
             }
         })
     }
-    console.log("Loading Route: / (Swagger API Documentation)");
-    app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
+    console.log(`Loading Route: ${webpath} (Swagger API Documentation)`);
+    app.use(webpath, swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 })
 
 module.exports = app;

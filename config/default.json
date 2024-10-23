@@ -1,8 +1,9 @@
 
 {
     "server": {
-        "host": "localhost",
-        "port": 7000
+        "host": "127.0.0.1",
+        "port": 7000,
+        "path": "/kobold-api"
     },
     "model": {
         "folder": "/home/wolf/Documents/Projects/gguf",
