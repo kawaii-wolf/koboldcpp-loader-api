@@ -1,0 +1,2 @@
+#!/bin/bash
+screen -d -m -S kobold /path/to/koboldcpp --port 5000 --smartcontext --usecublas --gpulayers 999 --blasbatchsize 512 --flashattention --quantkv 2 --contextsize $((1024*$1)) --model /path/to/models/GGUF/$2
