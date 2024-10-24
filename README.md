@@ -14,3 +14,6 @@ Simple API intended for remote execution calls to start/stop koboldcpp and list 
   - Set a shared secret in default.json. This will be required for calls to load/unload  
 * npm install
 * node --experimental-fetch app.js
+
+## How to use
+* Browse to site, see swagger documentation/examples on site.
