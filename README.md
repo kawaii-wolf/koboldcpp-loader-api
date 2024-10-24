@@ -1,4 +1,4 @@
-# Node.js API Hello World
+# Node.js API to reload KoboldCPP
 Simple API intended for remote execution calls to start/stop koboldcpp and list available files
 
 ## Requirements
