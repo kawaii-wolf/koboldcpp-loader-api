@@ -55,9 +55,8 @@ router.post("/", function(req, res, next) {
             return;
         }
         console.log(`Unloading model (${cmd}): ${stdout.trim()}`);
+        res.send();
     });
-
-    res.send();
 });
 
 router.use((err, req, res, next) => {
