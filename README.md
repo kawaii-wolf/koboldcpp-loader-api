@@ -16,4 +16,4 @@ Simple API intended for remote execution calls to start/stop koboldcpp and list 
 * node --experimental-fetch app.js
 
 ## How to use
-* Browse to site, see swagger documentation/examples on site.
+* Browse to http://site/kobold-api, see swagger documentation/examples on site.
