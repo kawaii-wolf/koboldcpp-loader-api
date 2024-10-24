@@ -69,12 +69,6 @@ router.post("/", function(req, res, next) {
         console.log(`Error Loading Model: no model ${req.body.model}`);
         return;
     }
-    if (!(req.body.context === parseInt(req.body.context,10)))
-    {
-        res.status(400).send(req.body);
-        console.log(`Error Loading Model: bad context ${req.body.context}`);
-        return;
-    }
 
     let cmd = `${kobold} ${req.body.context} ${req.body.model}`;
     exec(cmd, (error, stdout, stderr) => {
