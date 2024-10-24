@@ -69,7 +69,7 @@ router.post("/", function(req, res, next) {
         console.log(`Error Loading Model: no model ${req.body.model}`);
         return;
     }
-    if (!(req.body.context === parseInt(req.body.context,10)) || req.body.context <= 0)
+    if (!(req.body.context === parseInt(req.body.context,10)))
     {
         res.status(400).send(req.body);
         console.log(`Error Loading Model: bad context ${req.body.context}`);
