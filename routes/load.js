@@ -34,6 +34,10 @@ const { exec } = require("child_process");
  *              description: number * 1k context size
  *              type: int
  *              default: 32
+ *            options:
+ *              description: additional parameter(s) that can be passed to the load script 
+ *              type: str
+ *              default: 
  *            apikey:
  *              description: shared secret in confing/default.json
  *              type: string
@@ -62,6 +66,9 @@ router.post("/", function(req, res, next) {
         console.log(`Error Loading Model: missing parameters`);
         return;
     }
+    let opt="";
+    if (req.body.options)
+        opt = req.body.options;
     let files = fs.readdirSync(modeldir);
     if (!files.includes(req.body.model))
     {    
@@ -70,7 +77,7 @@ router.post("/", function(req, res, next) {
         return;
     }
 
-    let cmd = `${kobold} ${req.body.context} ${req.body.model}`;
+    let cmd = `${kobold} ${req.body.context} ${req.body.model} ${opt}`;
     exec(cmd, (error, stdout, stderr) => {
         if (error) {
             res.status(400).send(error.message);
