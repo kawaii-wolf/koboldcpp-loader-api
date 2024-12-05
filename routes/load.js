@@ -77,7 +77,7 @@ router.post("/", function(req, res, next) {
         return;
     }
 
-    let cmd = `${kobold} ${req.body.context.replace(/[^A-Za-z0-9\-.= ]/g,'')} ${req.body.model.replace(/[^A-Za-z0-9\-.= ]/g,'')} ${opt.replace(/[^A-Za-z0-9\-.= ]/g,'')}`;
+    let cmd = `${kobold} ${req.body.context.replace(/[^A-Za-z0-9\-.=_ ]/g,'')} ${req.body.model.replace(/[^A-Za-z0-9\-.=_ ]/g,'')} ${opt.replace(/[^A-Za-z0-9\-.=_ ]/g,'')}`;
     exec(cmd, (error, stdout, stderr) => {
         if (error) {
             res.status(400).send(error.message);
