@@ -6,6 +6,7 @@ const config = require('config');
 const port = config.get('server.port');
 const host = config.get('server.host');
 const webpath = config.get('server.path');
+const cors = require('cors');
 
 var swaggerJsdoc = require("swagger-jsdoc");
 var swaggerUi = require("swagger-ui-express");
@@ -32,6 +33,7 @@ fs.readdir(`${__dirname}/routes`, (err, files) => {
     if (err)
         console.log(err);
     else {
+        app.use(cors());
         files.forEach(file => {
             if (file.endsWith(".js")) {
                 let route = (webpath == "/" ? "/" : webpath + "/") + file.substring(0,file.length-3);
